@@ -1,6 +1,6 @@
 import numpy as np
 
-fn = """COSC3306_FA2026_Assignment_1_string_Team_2.txt"""
+fn = r"COSC3306_FA2026_Assignment_1_string_Team_2.txt"
 with open(fn) as f:
     s0 = f.read()
 
@@ -24,7 +24,7 @@ def recursiveScrabble(s0):
         return left + right
 
 
-words_fn = """google-10000-english-usa-no-swears-short-medium.txt"""
+words_fn = r"google-10000-english-usa-no-swears-short-medium.txt"
 with open(words_fn) as f:
     words = f.read().splitlines()
 
