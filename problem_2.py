@@ -12,6 +12,7 @@ s0 = s0[0]
 
 np.random.seed(seed)
 
+# recursive function to randomly scramble a string
 def recursiveScrabble(s0):
     if len(s0) <= 1:
         return s0
@@ -25,7 +26,8 @@ def recursiveScrabble(s0):
     else:
         return left + right
 
-def determine_valid_scrabbled_words(s0, words,iterations=20):
+# function to determine valid scrabbled words
+def determine_valid_scrabbled_words(s0, words, iterations=20):
     valid_words = set()
     for i in range(iterations):
         s1 = recursiveScrabble(s0)
@@ -33,6 +35,7 @@ def determine_valid_scrabbled_words(s0, words,iterations=20):
         for substr in substrs:
             if substr in words:
                 valid_words.add(substr)
+    # return sorted words to ensure consistent output
     return sorted(valid_words)
 
 
@@ -46,5 +49,6 @@ valid_words_dict = {}
 for word in valid_words:
     valid_words_dict.setdefault(len(word), []).append(word)
 
+# print the valid words grouped by length
 for length in sorted(valid_words_dict.keys()):
     print(f"Length {length}: {', '.join(valid_words_dict[length])}")
